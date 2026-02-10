@@ -1,36 +1,25 @@
 import {useState} from "react"
 
-export const Ejercicio5 = () => {
-    const [acumulador, setAcumulador] = useState<number>(0);
-    const incrementar = (): void =>{
-        setAcumulador((prev:number) => prev + 5);
+    const Ejercicio5 = () => {
+    const [valorContador, setValorContador] = useState<number>(0);
+
+    const cambiarContador = (numero:number) => {
+        setValorContador(valorContador + numero);
     };
-    const disminuir = (): void =>{
-        setAcumulador((prev: number) => prev - 5);
-    };
-
-  return (
-    <div>
-        <h3>Ejercicio 5</h3>
-        <div style={{
-            border: "2px solid #68da6c ",
-            width: "80px", 
-            height: "40px",
-            margin: "10px auto",
-            display: "flex",
-            justifyContent: "center",
-            fontSize:"18px",
-            fontWeight:"bold"
-
-
-            }}>
-            {acumulador}
+    return(
+        <div>
+            <h3>
+                Contador: <small>{valorContador}</small>
+            </h3>
+            <button className="btn btn-primary"onClick={() => cambiarContador(1)}>
+                +1
+            </button>
+            &nbsp;
+            <button
+                className="btn btn-primary"onClick={() => cambiarContador(-1)}>
+                -1
+            </button>
         </div>
-        <br/>
-        <button onClick={incrementar}>+5</button>
-        &nbsp;
-        <button onClick={disminuir}>-5</button>
-    </div>
-  );
-};
+    )
+}
 export default Ejercicio5
